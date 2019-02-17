@@ -1,6 +1,6 @@
 class Application
   
-  @@items = []
+  @@item = []
   
   def call(env)
     resp = Rack::Response.new 
@@ -8,7 +8,7 @@ class Application
     
     if req.path.match(/items/)
       item_name = req.path.split("/items").last 
-      item = @@items.find{|i| i.name == item_name}
+      item = @@item.find{|i| i.name == item_name}
       
       resp.write item.price
     else
