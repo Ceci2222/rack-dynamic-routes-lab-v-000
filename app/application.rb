@@ -10,7 +10,7 @@ class Application
       item_name = req.path.split("/items/").last 
       item = @@items.find{|i| i.name == item_name}
         if !item 
-          resp.write "No item found"
+          resp.write "Item not found"
           resp.status = 400
         else
           resp.write item.price
